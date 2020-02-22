@@ -10,7 +10,7 @@ Topics:
   - ImageTragick
   - XXE - XML eXternal Entity
   - [DODO] "breaking parser logic - path normalization"
-- SSRF Attacks ("A New Era of SSRF")
+- SSRF Attacks
 - Unsafe deserialization
 - XPath / [DODO]XML/ [DODO]CSV / [DODO]LDAP Injection
 - [DODO] header injection (request/response smuggling/splitting)

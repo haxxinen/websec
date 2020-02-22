@@ -13,7 +13,7 @@ Topics:
   - ImageTragick
   - XXE - XML eXternal Entity
   - [DODO] "breaking parser logic - path normalization"
-- XPath / [DODO]XML/ [DODO]CSV / [DODO]LDAP Injection
+- XPath / LDAP Injection / [DODO]XML/ [DODO]CSV
 - [DODO] header injection (request/response smuggling/splitting)
 - [DODO] open redirect
 - [DODO] SOAP / JSON Injection

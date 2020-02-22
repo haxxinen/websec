@@ -1,5 +1,6 @@
 Topics:
 
+- OS Command Injection
 - SQL / [DODO] NoSQL Injection
 - LFI - Local File Inclusion
 - RFI - Remote File Inclusion
@@ -15,5 +16,4 @@ Topics:
 - [DODO] header injection (request/response smuggling/splitting)
 - [DODO] open redirect
 - [DODO] SOAP / JSON Injection
-- [DODO] OS Command Injection
 - [DODO] server-side template injection

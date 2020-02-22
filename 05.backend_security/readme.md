@@ -1,6 +1,6 @@
 Topics:
 
-- OS Command Injection
+- OS Command Injection / Code injection
 - SQL / [DODO] NoSQL Injection
 - Unsafe deserialization
 - LFI - Local File Inclusion
@@ -8,7 +8,6 @@ Topics:
 - Path Traversal
 - File Upload
 - SSRF Attacks
-- Code injection
 - file parser vulnerabilities 
   - ImageTragick
   - XXE - XML eXternal Entity

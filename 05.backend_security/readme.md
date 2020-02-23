@@ -1,6 +1,6 @@
 Topics:
 
-- OS Command Injection
+- OS Command Injection / Code injection
 - SQL / [DODO] NoSQL Injection
 - Unsafe deserialization
 - LFI - Local File Inclusion
@@ -8,12 +8,11 @@ Topics:
 - Path Traversal
 - File Upload
 - SSRF Attacks
-- Code injection
 - file parser vulnerabilities 
   - ImageTragick
   - XXE - XML eXternal Entity
   - [DODO] "breaking parser logic - path normalization"
-- XPath / [DODO]XML/ [DODO]CSV / [DODO]LDAP Injection
+- XPath / LDAP Injection / XML injection / [DODO]CSV
 - [DODO] header injection (request/response smuggling/splitting)
 - [DODO] open redirect
 - [DODO] SOAP / JSON Injection

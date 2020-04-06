@@ -1,7 +1,5 @@
 Topics:
 
-- introduction to cryptography
-- password security (storage, reset, transit)
 - JSON Web Tokens
 - hashing vs. encryption vs. encoding vs. digital-signatures
 - password security: transit, storage, application secrets

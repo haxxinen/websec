@@ -1,20 +1,15 @@
 Topics:
 
 - OS Command Injection / Code injection
-- SQL / [DODO] NoSQL Injection
+- SQL Injection
 - Unsafe deserialization
 - Local/Remote File Inclusion + Path Traversal
 - File Upload
-- SSRF Attacks
-- file parser vulnerabilities
-  - ImageTragick
-  - [DODO] "breaking parser logic - path normalization"
+- File Parser Vulnerabilities (ImageTragick)
+- SSRF Attacks / Open Redirect
 - XML attacks
   - XPath injection
   - XML injection
   - XXE - XML eXternal Entity
-- LDAP Injection, CSV injection
-- [DODO] header injection (request/response smuggling/splitting)
-- [DODO] open redirect
-- [DODO] SOAP / JSON Injection
-- [DODO] server-side template injection
+- LDAP Injection
+- Open Redirect
